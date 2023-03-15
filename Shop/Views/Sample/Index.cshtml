@@ -1,0 +1,56 @@
+﻿@model Shop.Controllers.MyTest
+
+<h2>Привет! Мы на странице Sample</h2>
+<h2>@Model.Name</h2>
+
+@* Здесь находится комментарий*@
+@{
+    //await Html.RenderPartialAsync("_GetMessage");
+    string hello = "Hello world";
+
+    <h3> Заголовок: @hello</h3>
+    <text>@hello</text>
+    int x = 1;
+}
+
+@await Html.PartialAsync("_GetMessage")
+
+@* Здесь находится комментарий*@
+<h3> Заголовок2: @hello</h3>
+
+@*Условный оператор*@
+@if (x == 1)
+{
+    <p>Х равен 1</p>
+}
+
+else
+{
+    <p>Х не равен 1</p>
+
+}
+цикл for:
+@for (var i = 1; i < 10; i++)
+{
+    <p>@i</p>
+}
+
+@functions
+{
+    public int GetFactorial(int n)
+    {
+        int result = 1;
+        for (int i = 1; i <= n; i++)
+            result *= i;
+        return result;
+    }
+}
+<div>Факториал числа 5 равен: @GetFactorial(5)</div>
+
+<h4>@ViewData["Message"]</h4>
+<h4>@ViewData["Apple"]</h4>
+<h4>@ViewBag.Message</h4>
+@{
+    ViewBag.Message = "Новое сообщение";
+}
+<h4>@ViewBag.Message</h4>

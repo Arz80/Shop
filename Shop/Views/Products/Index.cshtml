@@ -1,0 +1,31 @@
+﻿@model List<Products>
+
+@{
+    ViewData["Title"] = "Список продуктов";
+}
+<p>
+    <a class="btn btn-danger" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Info</td>
+        <td>Category</td>
+        <td>Brand</td>
+        <td>Price</td>
+    </tr>
+   
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.Product_id</td>
+            <td>@product.Name</td>
+            <td>@product.Info</td>
+            <td>@product.Category_id</td>
+            <td>@product.Brand_id</td>
+            <td>@product.Price</td>
+        </tr>
+    }
+</table>
+
